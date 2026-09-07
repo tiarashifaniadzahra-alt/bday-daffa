@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For Daffa ♡</title>
+    <style>
+        body {background-color: #89CFF0;
+        text-align: center;
+    }
+
+    h1 {
+        color :#000080;
+    }
+    button {
+        background-color: #000080;
+        color:white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 20px;
+        font-size: 16px;
+        cursor: pointer;
+
+    }
+
+    button:hover {
+        background-color: #89CFF0;
+    }
+
+    #surprise {
+        margin-top: 30px;
+        background-color: white;
+        padding: 25px;
+        border-radius: 20px;
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #surprise h2 {
+        color:#000080;
+    }
+
+    #surprise p  {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    #surprise {
+    animation: cardMasuk 0.8s ease;
+}
+
+@keyframes cardMasuk {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    }
+    .heart {
+    position: fixed;
+    top: -20px;
+    font-size: 20px;
+    animation: jatuh 4s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes jatuh {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+.confetti {
+    position: fixed;
+    top: -10px;
+    width: 8px;
+    height: 12px;
+    animation: confettiJatuh 3s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes confettiJatuh {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+.birthdayVideo {
+    width: 250px;
+    max-width: 85%;
+    height: auto;
+    border-radius: 12px;
+    margin: 15px auto;
+    display: block;
+}
+    </style>
+</head>
+
+<body>
+
+    <h1> Happy Birthday, Daffa! 🎂</h1>
+    <p>someone spesial was born today</p>
+    <button onclick="surprise()">OPEN YOUR CARD</button>
+
+    <div id="surprise"></div>
+
+<script>
+    function surprise () {
+        document.getElementById("surprise").innerHTML =
+         "<h2>Happy Birthday, Daffa!</h2>" +
+"<p>Siapa yang ulang tahun coy! 🎂</p>" +
+"<video class='birthdayVideo' controls>" +
+"<source src='./bday16.mp4' type='video/mp4'>" +
+"</video>" + "<button onclick='showMessage()'>LANJUTTT</button>";
+         }
+         function showMessage() {
+    document.getElementById("surprise").innerHTML =
+    "<h2>Untuk Daffa ♡</h2>" +
+    "<p>Daffa, banyak senyum yaa.</p>" +
+    "<p>ayoo cerewet terus.</p>" +
+    "<p>ajarin aku matematika juga, terus maaf typo 😭</p>" +
+    "<button onclick='thirdMessage()'>LANJUT</button>";
+}
+
+function thirdMessage() {
+    document.getElementById("surprise").innerHTML =
+    "<h2>Pesan terakhir ♡</h2>" +
+    "<p>NAH INI PESAN KETIGANYA 😭</p>" +
+    "<p>ini memang kecil, semoga sukaa!</p>" +
+    "<button onclick='secondCard()'>MASIH ADA LAGI →</button>";
+    createHearts();
+}
+
+function secondCard() {
+    document.getElementById("surprise").innerHTML =
+    "<h2>Eh, tunggu... ♡</h2>" +
+    "<p>Kirain udah selesai? 😭</p>" +
+    "<p>Masih ada satu hal kecil buat kamu.</p>" +
+    "<button onclick='lastMessage()'>BUKA 💌</button>";
+    createHearts();
+}
+
+function lastMessage() {
+    document.getElementById("surprise").innerHTML =
+    "<h2>Happy Birthday, Daffa ♡</h2>" +
+    "<p>Semoga hari-hari kamu selalu dipenuhi hal-hal baik.</p>" +
+    "<p>Semoga kamu selalu bahagia dan jangan lupa banyak senyum!</p>" +
+    "<p>🎂💗</p>";
+    createHearts();
+    createConfetti();
+}
+function createHearts() {
+    for (let i = 0; i < 10; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "♡";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDelay = Math.random() * 2 + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+}
+function createConfetti() {
+    for (let i = 0; i < 30; i++) {
+        let confetti = document.createElement("div");
+
+        confetti.className = "confetti";
+        confetti.innerHTML = "✦";
+
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.animationDelay = Math.random() * 1.5 + "s";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 4000);
+    }
+}
+</script>
+
+</body>
+</html>
